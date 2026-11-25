@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Brainrot Report 666 — Night desk</title>
+  <meta name="description" content="Ilse, Luz, Nia, and Mira file issue 666 together. Four handoffs, one night desk.">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#desk">Skip to the desk</a>
+  <header class="mast">
+    <p class="brand">Brainrot Report</p>
+    <h1>Night desk <span>666</span></h1>
+    <p class="lead">Ilse, Luz, Nia, and Mira are on the same job. The issue does not close until the last handoff lands back with Mira.</p>
+    <p id="api-line">Reading <a href="/api/desk">/api/desk</a>.</p>
+    <nav aria-label="On this page">
+      <ul>
+        <li><a href="#desk">Desk</a></li>
+        <li><a href="#passes">Handoffs</a></li>
+        <li><a href="#file">The file</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="desk">
+    <form class="night">
+      <fieldset>
+        <legend>Who has the night</legend>
+        <div class="lanes">
+          <label class="pill">
+            <input type="radio" name="lane" value="all" checked>
+            Whole desk
+          </label>
+        </div>
+
+        <div class="crew">
+          <label class="card">
+            <input type="radio" name="lane" value="ilse">
+            <img src="/images/ilse.jpg" width="832" height="1248" alt="Ilse in a black coat, closing a cooler that holds two hearts on a morgue table." fetchpriority="high">
+            <hgroup>
+              <h2>Ilse</h2>
+              <p>Cold chain</p>
+            </hgroup>
+            <p>Closes the cooler and signs the slip.</p>
+            <footer>Passes to Luz</footer>
+          </label>
+
+          <label class="card">
+            <input type="radio" name="lane" value="luz">
+            <img src="/images/luz.jpg" width="832" height="1248" alt="Luz in a hoodie, tattoos in her fade and on her face, shaking a new spray can in a foggy alley.">
+            <hgroup>
+              <h2>Luz</h2>
+              <p>Walls</p>
+            </hgroup>
+            <p>Shakes a new can and marks 666.</p>
+            <footer>Passes to Nia</footer>
+          </label>
+
+          <label class="card">
+            <input type="radio" name="lane" value="nia">
+            <img src="/images/nia.jpg" width="832" height="1248" alt="Nia in a grey hoodie in a pharmacy cosmetics aisle, phone to her ear, compacts going into the pocket.">
+            <hgroup>
+              <h2>Nia</h2>
+              <p>Floor</p>
+            </hgroup>
+            <p>Works the aisle, the Escalade, and the sidewalk.</p>
+            <footer>Passes to Mira</footer>
+          </label>
+
+          <label class="card">
+            <input type="radio" name="lane" value="mira">
+            <img class="driver" src="/images/mira.jpg" width="1280" height="720" alt="Mira laughing in a red Porsche 911 Carrera, phone at her ear and a boba at her mouth, crossing under a red light.">
+            <hgroup>
+              <h2>Mira</h2>
+              <p>Dispatch</p>
+            </hgroup>
+            <p>Keeps the line open and brings the clock.</p>
+            <footer>Passes to Ilse</footer>
+          </label>
+        </div>
+      </fieldset>
+
+      <section id="passes" aria-labelledby="passes-heading">
+        <header class="board-head">
+          <h2 id="passes-heading">Project: file issue 666</h2>
+          <dl class="status">
+            <div>
+              <dt>Crew</dt>
+              <dd>4</dd>
+            </div>
+            <div>
+              <dt>Handoffs</dt>
+              <dd>4</dd>
+            </div>
+            <div>
+              <dt>Closes when</dt>
+              <dd>Mira has the street back</dd>
+            </div>
+          </dl>
+        </header>
+
+        <ol class="chain" aria-label="Order of the handoffs">
+          <li data-owner="mira">Mira</li>
+          <li data-owner="ilse">Ilse</li>
+          <li data-owner="luz">Luz</li>
+          <li data-owner="nia">Nia</li>
+          <li data-owner="mira">Mira</li>
+        </ol>
+
+        <ol class="passes">
+          <li class="pass" data-owner="mira">
+            <h3>1. Mira opens the line</h3>
+            <p>She is in the Carrera, phone at one ear, boba at her mouth, taking the red so the desk is not late. She passes the clock to Ilse.</p>
+          </li>
+          <li class="pass" data-owner="ilse">
+            <h3>2. Ilse closes the cooler</h3>
+            <p>Morgue light, both hands on the lid, two hearts in the ice. She signs the cold-chain slip and passes it to Luz.</p>
+          </li>
+          <li class="pass" data-owner="luz">
+            <h3>3. Luz marks the wall</h3>
+            <p>Fog in the alley, hoodie up, tattoos in the fade and on her face, a new can mid-shake. She puts 666 on the brick and passes the wall to Nia.</p>
+          </li>
+          <li class="pass" data-owner="nia">
+            <h3>4. Nia works Valley Boulevard</h3>
+            <p>Same woman from the cosmetics aisle. Compacts in the hoodie, liftgate up on the Escalade across from Alhambra Valley Bowl, a hundred out to the bald man with the boombox who is yelling at himself and trying not to be seen. She passes the street back to Mira.</p>
+          </li>
+        </ol>
+      </section>
+
+    <section id="file" aria-labelledby="file-heading">
+      <h2 id="file-heading">What they brought back</h2>
+      <div class="file">
+        <figure class="shot" data-owner="ilse">
+          <img src="/images/ilse.jpg" width="832" height="1248" alt="Ilse closing the morgue cooler." loading="lazy">
+          <figcaption>Ilse. Cold-chain slip, ready for Luz.</figcaption>
+        </figure>
+        <figure class="shot" data-owner="luz">
+          <img src="/images/luz.jpg" width="832" height="1248" alt="Luz shaking a spray can in the alley." loading="lazy">
+          <figcaption>Luz. The wall, ready for Nia.</figcaption>
+        </figure>
+        <figure class="shot" data-owner="nia">
+          <img src="/images/nia.jpg" width="832" height="1248" alt="Nia on the phone in the cosmetics aisle." loading="lazy">
+          <figcaption>Nia. The aisle, before the boulevard.</figcaption>
+        </figure>
+        <figure class="shot" data-owner="nia">
+          <img src="/images/nia-escalade.jpg" width="832" height="1248" alt="Nia at the open liftgate of a black Cadillac Escalade at night, a bag of cannabis falling to the concrete, bowling alley across Valley Boulevard." loading="lazy">
+          <figcaption>Nia. East Valley, across from the bowl.</figcaption>
+        </figure>
+        <figure class="shot" data-owner="nia">
+          <img src="/images/nia-sidewalk.jpg" width="832" height="1248" alt="Nia handing a bill to a bald man in dark clothes who is yelling and holding a boombox." loading="lazy">
+          <figcaption>Nia. The hundred, then back to Mira.</figcaption>
+        </figure>
+        <figure class="shot wide-shot" data-owner="mira">
+          <img class="wide" src="/images/mira.jpg" width="1280" height="720" alt="Mira in the red Porsche under the red light." loading="lazy">
+          <figcaption>Mira. She takes the street back and the issue can close.</figcaption>
+        </figure>
+      </div>
+    </section>
+    </form>
+  </main>
+
+  <footer class="colophon">
+    <p>Desk names for this page: Ilse, Luz, Nia, Mira. One project, four lanes, a ring of handoffs.</p>
+  </footer>
+  <script type="module">
+    const line = document.querySelector("#api-line");
+    try {
+      const response = await fetch("/api/desk");
+      if (!response.ok) throw new Error(String(response.status));
+      const desk = await response.json();
+      const ring = desk.crew.map((person) => person.name).join(" → ");
+      line.textContent = `${desk.project}. ${ring} → ${desk.crew[0].name}. ${desk.closesWhen}.`;
+    } catch {
+      line.textContent = "The page is the desk. /api/desk answers when this is on Vercel.";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,440 @@
+:root {
+  --bg-light: #f3ecdf;
+  --bg-dark: #100e0c;
+  --ink-light: #1c1612;
+  --ink-dark: #efe6d8;
+  --quiet-light: #5c5146;
+  --quiet-dark: #cbbfae;
+  --card-light: #fffaf3;
+  --card-dark: #1c1714;
+  --brass-light: #7a5b22;
+  --brass-dark: #e2c06a;
+  --blood-light: #8c2d2d;
+  --blood-dark: #e15b5b;
+  --line-light: #d9cbb6;
+  --line-dark: #3a322b;
+
+  --bg: var(--bg-light);
+  --ink: var(--ink-light);
+  --quiet: var(--quiet-light);
+  --card: var(--card-light);
+  --brass: var(--brass-light);
+  --blood: var(--blood-light);
+  --line: var(--line-light);
+
+  color-scheme: light dark;
+  accent-color: var(--brass);
+  scrollbar-color: var(--quiet) var(--bg);
+
+  @media (prefers-color-scheme: dark) {
+    --bg: var(--bg-dark);
+    --ink: var(--ink-dark);
+    --quiet: var(--quiet-dark);
+    --card: var(--card-dark);
+    --brass: var(--brass-dark);
+    --blood: var(--blood-dark);
+    --line: var(--line-dark);
+  }
+
+  @supports (color: light-dark(white, black)) {
+    --bg: light-dark(var(--bg-light), var(--bg-dark));
+    --ink: light-dark(var(--ink-light), var(--ink-dark));
+    --quiet: light-dark(var(--quiet-light), var(--quiet-dark));
+    --card: light-dark(var(--card-light), var(--card-dark));
+    --brass: light-dark(var(--brass-light), var(--brass-dark));
+    --blood: light-dark(var(--blood-light), var(--blood-dark));
+    --line: light-dark(var(--line-light), var(--line-dark));
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  min-block-size: 100dvb;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Iowan Old Style", Palatino, "Palatino Linotype", Georgia, serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  object-fit: cover;
+}
+
+.skip {
+  position: absolute;
+  inset-block-start: 0.5rem;
+  inset-inline-start: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--card);
+  color: var(--ink);
+  transform: translateY(-150%);
+}
+
+.skip:focus {
+  transform: none;
+  z-index: 2;
+}
+
+.mast,
+main,
+.colophon {
+  inline-size: min(72rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.mast {
+  padding-block: 2.5rem 1.5rem;
+}
+
+.brand {
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: var(--blood);
+}
+
+h1 {
+  margin: 0.2rem 0 0.6rem;
+  font-size: clamp(3.2rem, 12vw, 7rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+h1 span {
+  color: var(--brass);
+}
+
+.lead,
+#api-line {
+  max-inline-size: 38rem;
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+#api-line {
+  margin-block-start: 0.75rem;
+  color: var(--quiet);
+  font-size: 1rem;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.75rem 1.25rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav a {
+  color: var(--ink);
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  padding: 0;
+  margin-block-end: 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+.lanes {
+  margin-block-end: 1rem;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.7rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+}
+
+.pill:has(:checked) {
+  border-color: var(--brass);
+}
+
+.crew {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  grid-auto-rows: auto auto 1fr auto;
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: subgrid;
+  gap: 0.65rem;
+  padding: 0.7rem;
+  border: 2px solid transparent;
+  border-radius: 0.4rem;
+  background: var(--card);
+  container: card / inline-size;
+  cursor: pointer;
+}
+
+.card > input {
+  position: absolute;
+  inset-block-start: 0.9rem;
+  inset-inline-end: 0.9rem;
+  margin: 0;
+}
+
+.card > img {
+  inline-size: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 0.2rem;
+}
+
+.card > img.driver {
+  object-position: 50% 40%;
+}
+
+.card h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 8cqi, 2.4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.card hgroup p,
+.card > p,
+.card footer {
+  margin: 0;
+}
+
+.card hgroup p {
+  color: var(--blood);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card > p {
+  color: var(--quiet);
+}
+
+.card footer {
+  font-size: 0.95rem;
+}
+
+.card:has(> input:checked) {
+  border-color: var(--brass);
+}
+
+.card:has(:focus-visible) {
+  outline: 3px solid var(--blood);
+  outline-offset: 3px;
+}
+
+.card input:focus-visible {
+  outline: none;
+}
+
+.board-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-block: 2.5rem 1rem;
+}
+
+h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 500;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 1rem 1.5rem;
+  margin: 0;
+}
+
+.status div {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.status dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--quiet);
+}
+
+.status dd {
+  margin: 0;
+}
+
+.chain {
+  display: flex;
+  flex-wrap: wrap;
+  flex-wrap: balance;
+  gap: 0.4rem 0.35rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.chain li {
+  padding: 0.25rem 0.6rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.chain li + li::before {
+  content: "→ ";
+  color: var(--brass);
+}
+
+.passes {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pass {
+  padding: 0.9rem 1rem;
+  border-block-end: 1px solid var(--line);
+  box-shadow: inset 3px 0 0 transparent;
+}
+
+.pass h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.pass p {
+  margin: 0;
+  max-inline-size: 46rem;
+}
+
+.night:has(input[value="ilse"]:checked) .pass:not([data-owner="ilse"]),
+.night:has(input[value="luz"]:checked) .pass:not([data-owner="luz"]),
+.night:has(input[value="nia"]:checked) .pass:not([data-owner="nia"]),
+.night:has(input[value="mira"]:checked) .pass:not([data-owner="mira"]),
+.night:has(input[value="ilse"]:checked) .shot:not([data-owner="ilse"]),
+.night:has(input[value="luz"]:checked) .shot:not([data-owner="luz"]),
+.night:has(input[value="nia"]:checked) .shot:not([data-owner="nia"]),
+.night:has(input[value="mira"]:checked) .shot:not([data-owner="mira"]),
+.night:has(input[value="ilse"]:checked) .chain li:not([data-owner="ilse"]),
+.night:has(input[value="luz"]:checked) .chain li:not([data-owner="luz"]),
+.night:has(input[value="nia"]:checked) .chain li:not([data-owner="nia"]),
+.night:has(input[value="mira"]:checked) .chain li:not([data-owner="mira"]) {
+  color: var(--quiet);
+}
+
+.night:has(input[value="ilse"]:checked) .pass[data-owner="ilse"],
+.night:has(input[value="luz"]:checked) .pass[data-owner="luz"],
+.night:has(input[value="nia"]:checked) .pass[data-owner="nia"],
+.night:has(input[value="mira"]:checked) .pass[data-owner="mira"] {
+  box-shadow: inset 3px 0 0 var(--brass);
+}
+
+.night:has(input[value="ilse"]:checked) .chain li[data-owner="ilse"],
+.night:has(input[value="luz"]:checked) .chain li[data-owner="luz"],
+.night:has(input[value="nia"]:checked) .chain li[data-owner="nia"],
+.night:has(input[value="mira"]:checked) .chain li[data-owner="mira"] {
+  border-color: var(--brass);
+  color: var(--ink);
+}
+
+#file {
+  padding-block: 2.5rem 3rem;
+}
+
+#file h2 {
+  margin-block-end: 1rem;
+}
+
+.file {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.shot {
+  margin: 0;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.shot img {
+  inline-size: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 0.2rem;
+}
+
+.shot.wide-shot {
+  grid-column: 1 / -1;
+}
+
+.shot.wide-shot img {
+  aspect-ratio: 16 / 9;
+}
+
+figcaption {
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
+.colophon {
+  padding-block: 0 2.5rem;
+  color: var(--quiet);
+  font-size: 0.95rem;
+}
+
+a:focus-visible,
+.pill:has(:focus-visible) {
+  outline: 3px solid var(--blood);
+  outline-offset: 3px;
+}
+
+@media (forced-colors: active) {
+  .card:has(> input:checked),
+  .pill:has(:checked) {
+    outline: 3px solid CanvasText;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip {
+    transition: none;
+  }
+}
